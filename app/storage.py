@@ -10,10 +10,20 @@ def load_tasks() -> list[Task]:
     if not DATA_FILE.exists():
         return []
 
-    with DATA_FILE.open("r", encoding="utf-8") as file:
-        raw_tasks = json.load(file)
+    try:
+        with DATA_FILE.open("r", encoding="utf-8") as file:
+            raw_tasks = json.load(file)
+    except json.JSONDecodeError:
+        return []
 
     return [Task(**task) for task in raw_tasks]
+
+
+def find_task_index(tasks: list[Task], task_id: int) -> int | None:
+    for index, task in enumerate(tasks):
+        if task.id == task_id:
+            return index
+    return None
 
 
 def save_tasks(tasks: list[Task]) -> None:

@@ -13,6 +13,9 @@ uvicorn app.main:app --reload
 
 Open `http://127.0.0.1:8000/docs` to try the API.
 
+Requests are logged to the console, so it is easier to see what happens while
+testing endpoints from Swagger UI.
+
 ## API draft
 
 - `GET /tasks` - show all tasks
