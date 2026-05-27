@@ -12,3 +12,10 @@ uvicorn app.main:app --reload
 ```
 
 Open `http://127.0.0.1:8000/docs` to try the API.
+
+## API draft
+
+- `GET /tasks` - show all tasks
+- `POST /tasks` - create a task with a title
+- `GET /tasks/{task_id}` - show one task
+- `PATCH /tasks/{task_id}` - mark a task as done or not done
